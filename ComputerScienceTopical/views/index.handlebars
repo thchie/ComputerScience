@@ -1,0 +1,39 @@
+<br><br><br>
+<h1 class="text-center mb-3">{{title}}</h1>
+<br><br><br>
+
+<div id="error" style="color: red; text-align:center">
+    <h5> {{messages.error}}</h5>
+</div>
+
+<div id="success" style="color: green; text-align:center">
+    <h5> {{messages.success}}</h5>
+</div>
+<br><br>
+
+<h4>AS Level Computer Science 9608 Topical Past Papers (2017 - 2019)</h4>
+<ul class="list-group">
+
+    <div class="container">
+        <table class="table table-hover">
+            <tbody>
+                {{#each asChapter}}
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td>
+                        <form action='/api/movies/download/{{this.id}}' method="POST">
+
+                            {{#if this.status}}
+                            <button class="btn btn-danger" id="download" type="submit">Free Download</button>
+                            {{else}}
+                            <button class="btn btn-warning" id="download" type="">Coming Soon</button>
+                            {{/if}}
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</ul>
+<br><br><br><br><br>
